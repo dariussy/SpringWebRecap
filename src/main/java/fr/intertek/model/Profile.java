@@ -8,7 +8,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class Profil implements Serializable{
+public class Profile implements Serializable{
 	
 	private static final long serialVersionUID = 1L;
 	
@@ -18,7 +18,7 @@ public class Profil implements Serializable{
 	private String role;
 	private String description;
 	
-	public Profil() {
+	public Profile() {
 	}
 	
 	public Integer getId() {

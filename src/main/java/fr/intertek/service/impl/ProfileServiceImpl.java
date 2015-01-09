@@ -7,18 +7,18 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import fr.intertek.dao.ProfilDAO;
-import fr.intertek.model.Profil;
-import fr.intertek.service.ProfilService;
+import fr.intertek.dao.ProfileDAO;
+import fr.intertek.model.Profile;
+import fr.intertek.service.ProfileService;
 
 @Service
-public class ProfilServiceImpl implements ProfilService {
+public class ProfileServiceImpl implements ProfileService {
 	
 	@Autowired
-	public ProfilDAO dao;
+	public ProfileDAO dao;
 	
 	@Transactional
-	public Profil save(Profil u) {
+	public Profile save(Profile u) {
 		return dao.save(u);
 	}
 	
@@ -27,11 +27,11 @@ public class ProfilServiceImpl implements ProfilService {
 		dao.delete(id);
 	}
 	
-	public Profil getProfilById(Integer id) {
+	public Profile getProfilById(Integer id) {
 		return dao.findOne(id);
 	}
 	
-	public List<Profil> getUsers() {
+	public List<Profile> getProfiles() {
 		return dao.findAll();
 	}
 	
