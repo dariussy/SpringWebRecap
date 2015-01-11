@@ -7,6 +7,10 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 
 
+<jsp:include page="/tamplate/header.jsp">
+	<jsp:param value="Login Page" name="title" />
+</jsp:include>
+
 <section>
 	<%-- 	<div class="container-fluid container">
 		<div class="col-md-12">
@@ -61,10 +65,6 @@
 	</div>
 
 
-
-
-
-
-
-
 </section>
+
+<jsp:include page="/tamplate/footer.jsp"/>

@@ -2,13 +2,11 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 
-<!DOCTYPE html >
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>New User</title>
-</head>
-<body>
+<jsp:include page="/tamplate/header.jsp">
+	<jsp:param value="Login Page" name="title" />
+</jsp:include>
+
+<section>
 
 	<h2 class="form-signin-heading">Edit and Create User</h2>
 	<form:form commandName="user" action="saveUser.do">
@@ -47,6 +45,6 @@
 			<button type="submit">Create</button>
 		</div>
 	</form:form>
+</section>
 
-</body>
-</html>
+<jsp:include page="/tamplate/footer.jsp"/>
