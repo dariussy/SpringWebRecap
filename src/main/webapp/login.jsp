@@ -8,6 +8,24 @@
 
 
 <section>
+	<%-- 	<div class="container-fluid container">
+		<div class="col-md-12">
+			<form action="j_spring_security_check" method="POST">
+
+				<div class="form-group ">
+					<label for="username">Username : </label> <input type="text"
+						name="j_username" class="form-control" id="username"
+						placeholder="username" />
+				</div>
+				<div class="form-group ">
+					<label for="password">Password : </label> <input type="password"
+						name="j_password" class="form-control" id="password"
+						placeholder="password" />
+				</div>
+				<button type="submit" class="btn btn-default">Submit</button>
+			</form>
+		</div>
+	</div> --%>
 
 
 
@@ -21,13 +39,13 @@
 
 			<div class="form-group ">
 				<label for="username">User : </label> <input class="form-control"
-					placeholder="username" id="username" name="j_username" type="text">
+					placeholder="username" id="username" name="username" type="text">
 			</div>
 
 			<div class="form-group ">
 				<label for="password">Password : </label> <input
 					class="form-control" placeholder="Password" id="password"
-					name="j_password" type="password">
+					name="password" type="password">
 			</div>
 			<div class="form-group ">
 				<button class="btn btn-lg btn-primary btn-block" type="submit">Connection</button>

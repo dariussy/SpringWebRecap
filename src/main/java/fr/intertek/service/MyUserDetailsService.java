@@ -13,18 +13,18 @@ import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.stereotype.Service;
 
 import fr.intertek.dao.UserDAO;
 import fr.intertek.model.Profile;
 
-
+@Service
 public class MyUserDetailsService implements UserDetailsService {
 	@Autowired
 	private UserDAO userDao;
 
 	@Override
-	public UserDetails loadUserByUsername(final String username) throws UsernameNotFoundException {
-
+	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 		// Programmatic transaction management
 		/*
 		return transactionTemplate.execute(new TransactionCallback<UserDetails>() {
@@ -39,7 +39,6 @@ public class MyUserDetailsService implements UserDetailsService {
 		});*/
 		
 		fr.intertek.model.User user = userDao.findByLogin(username);
-		
 		List<GrantedAuthority> authorities = buildUserAuthority(user.getProfiles());
 
 		return buildUserForAuthentication(user, authorities);

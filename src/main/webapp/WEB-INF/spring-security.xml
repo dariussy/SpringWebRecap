@@ -11,10 +11,9 @@
 	<!-- enable use-expressions -->
 	<security:http>
 		<security:intercept-url pattern="/admin/**" access="ROLE_ADMIN" />
-		<security:intercept-url pattern="/user/**" access="ROLE_USER" />
-		<security:form-login login-page='/login.jsp' />
-		<!-- <security:form-login login-page='/login.jsp' default-target-url="" 
-			always-use-default-target="true"/> -->
+		<security:intercept-url pattern="/user/**" access="ROLE_ADMIN" />
+		<security:form-login login-page='/login.jsp' username-parameter="username"
+			password-parameter="password"/>
 		<security:logout />
 	</security:http>
 
@@ -31,9 +30,9 @@
 		</security:authentication-provider>
 	    
 		<authentication-provider>
-		    <password-encoder ref="encoder" />
+		    <password-encoder hash="bcrypt"/>
 			<jdbc-user-service data-source-ref="dataSource"
-				users-by-username-query="SELECT login as USERNAME, PASSWORD, CASE ENABLED WHEN 1 THEN 'true' ELSE 'false' END 'ENABLED' 
+				users-by-username-query="SELECT login as USERNAME, PASSWORD, CASE ENABLED WHEN 1 THEN 'true' ELSE 'true' END 'ENABLED' 
 											FROM user WHERE login=?"
 				authorities-by-username-query="select u.login AS USERNAME, p.role AS ROLENAME 
 												from user u join user_profile rp on u.id=rp.User_id 
@@ -41,12 +40,7 @@
 												where u.login =?" />
 		</authentication-provider>
 		
-		
-		
 	</authentication-manager>
- 
-	<beans:bean id="encoder" class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder">
-		<beans:constructor-arg name="strength" value="10" />
-	</beans:bean>
+	
 	
 </beans:beans>
